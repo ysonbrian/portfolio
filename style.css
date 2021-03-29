@@ -15,6 +15,7 @@
   --color-skill-value: #afccd8;
   --color-orange: #feb546;
   --color-black: #000000;
+  --color-scroll-btn: #b4d9f1;
 
   /* Font size */
   --font-large: 48px;
@@ -101,7 +102,6 @@ p {
   background-color: transparent;
   align-items: center;
   color: var(--color-white);
-  padding: 16px;
   transition: all var(--animation-duration) ease-in-out;
   z-index: 1;
 }
@@ -123,17 +123,14 @@ p {
   padding: 8px 12px;
   margin: 0 4px;
   cursor: pointer;
-  border-radius: var(--size-border-radius);
-}
-
-.navbar__menu__item.active {
-  border: 1px solid white;
+  color: var(--color-white);
+  border: 1px solid transparent;
   border-radius: var(--size-border-radius);
 }
 
 .navbar__menu__item:hover {
+  border: 1px solid white;
   background-color: var(--color-light-blue-grey);
-  border-radius: var(--size-border-radius);
 }
 
 .navbar__toggle-btn {
@@ -365,7 +362,7 @@ p {
 }
 
 .project__description h3 {
-  color: var(--color-white);
+  color: var(--color-orange);
 }
 
 .project__description h3:after {
@@ -373,9 +370,9 @@ p {
   display: block;
   position: relative;
   left: 50%;
-  width: 25px;
+  width: 50px;
   height: 2px;
-  margin-left: -12px;
+  transform: translateX(-50%);
   margin-top: 8px;
   background-color: white;
 }
@@ -426,6 +423,7 @@ p {
 /* Contact */
 #contact {
   background-color: var(--color-blue-grey);
+  padding-bottom: 0;
 }
 
 .contact__title,
@@ -449,15 +447,49 @@ p {
   transition: all var(--animation-duration) ease-in;
 }
 
+/* Scroll */
+.arrow-up {
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  width: 70px;
+  height: 70px;
+  font-size: 50px;
+  color: var(--color-white);
+  background-color: var(--color-scroll-btn);
+  border-radius: 50%;
+  opacity: 0;
+  transition: all 300ms ease-in;
+}
+
+.arrow-up.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
 /* For below 768px screen width */
 
 @media screen and (max-width: 768px) {
   .navbar__toggle-btn {
     display: block;
   }
+  #home {
+    padding: 80px;
+  }
+  .home__avatar {
+    width: 200px;
+    height: 200px;
+  }
+
   #navbar {
     flex-direction: column;
     align-items: flex-start;
+    background-color: var(--color-blue-grey);
+    padding: 16px;
+  }
+
+  #navbar.navbar--dark {
+    padding: 16px;
   }
 
   .navbar__menu {
@@ -466,6 +498,11 @@ p {
     width: 100%;
     display: none;
   }
+
+  .navbar__menu.open {
+    display: block;
+  }
+
   .about__majors {
     flex-direction: column;
   }
