@@ -30,18 +30,10 @@ navbarToggleBtn.addEventListener('click', () => {
   navbarMenu.classList.toggle('open');
 });
 
-// Home Contact me
-const homeContact = document.querySelector('.home__contact');
-homeContact.addEventListener('click', (e) => {
-  const hmeContact = document.querySelector('#home_contact');
-  const target = hmeContact;
-  const link = target.dataset.link;
-  if (link == null) {
-    return;
-  }
-  scrollIntoView(link);
-  // addRemoveActive(target);
-  selectNavItem(target);
+// Handle click on "contact me" button on Home
+const homeContactBtn = document.querySelector('.home__contact');
+homeContactBtn.addEventListener('click', () => {
+  scrollIntoView('#contact');
 });
 
 //  Make home slowly fade to transparent
