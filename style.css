@@ -194,9 +194,14 @@ p {
 }
 
 /* About */
+/* If Mobile is on .major needs to get off */
+.major {
+  padding: 100px;
+}
+
 .about__majors {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   margin: 80px 0;
 }
 
@@ -535,6 +540,7 @@ p {
 
   .major {
     margin-bottom: 30px;
+    padding: 0;
   }
 
   .skillset {
